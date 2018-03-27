@@ -1,24 +1,37 @@
-﻿body {
-    padding-top: 50px;
-    padding-bottom: 20px;
+﻿.intro-banner-callout h1 {
+    font-size: 50px;
+    font-weight: 900;
+    color: white;
+    text-shadow: 2px 3px 8.46px rgba(0,0,0,.73);
 }
 
-/* Set padding to keep content from hitting the edges */
-.body-content {
-    padding-left: 15px;
-    padding-right: 15px;
+.intro-banner-callout h2 {
+    font-size: 30px;
+    color: white;
+    text-shadow: 2px 3px 8.46px rgba(0,0,0,.73);
 }
 
-/* Override the default bootstrap behavior where horizontal description lists 
-   will truncate terms that are too long to fit in the left column 
-*/
-.dl-horizontal dt {
-    white-space: normal;
+.disclaimer-text {
+    padding: 10px 0;
+    background-color: #581908;
+    color: white;
 }
 
-/* Set width on the form input elements since they're 100% wide by default */
-input,
-select,
-textarea {
-    max-width: 280px;
+.legal-text {
+    padding: 25px 0;
+}
+
+h1.section-title {
+    color: #1a7f2c;
+    font-weight: 900;
+    font-size: 32px;
+}
+
+.package-text p {
+    font-size: 23px;
+}
+
+.package-text a {
+    color: black;
+    font-weight: bold;
 }

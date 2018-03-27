@@ -542,37 +542,33 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Repositories\PageTypeRepository.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\MediaLibraryController.cs" />
+    <Compile Include="Repositories\MediaLibraryRepository.cs" />
+    <Compile Include="Extensions\HTML\HtmlHelperExtensions.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Generated\Pages\HomePageColorTile.cs" />
+    <Compile Include="Models\Generated\Pages\HomePageColorTileProvider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Data\mimetypes.txt" />
-    <Content Include="Content\bootstrap.css" />
-    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\mystyles.css">
+      <DependentUpon>mystyles.scss</DependentUpon>
+    </Content>
+    <Content Include="Content\mystyles.min.css">
+      <DependentUpon>mystyles.css</DependentUpon>
+    </Content>
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="Scripts\bootstrap.js" />
-    <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
-    <Content Include="Scripts\jquery-1.10.2.js" />
-    <Content Include="Scripts\jquery-1.10.2.min.js" />
-    <None Include="Scripts\jquery.validate-vsdoc.js" />
-    <Content Include="Scripts\jquery.validate.js" />
-    <Content Include="Scripts\jquery.validate.min.js" />
-    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
-    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
-    <Content Include="Scripts\respond.js" />
-    <Content Include="Scripts\respond.min.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -590,7 +586,7 @@
     <Content Include="Views\MediaLibrary\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Models\" />
+    <Folder Include="Views\Form\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -602,8 +598,58 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\mystyles.scss" />
+    <Content Include="Content\bulma.sass" />
+    <Content Include="Content\sass\base\generic.sass" />
+    <Content Include="Content\sass\base\helpers.sass" />
+    <Content Include="Content\sass\base\minireset.sass" />
+    <Content Include="Content\sass\base\_all.sass" />
+    <Content Include="Content\sass\components\breadcrumb.sass" />
+    <Content Include="Content\sass\components\card.sass" />
+    <Content Include="Content\sass\components\dropdown.sass" />
+    <Content Include="Content\sass\components\level.sass" />
+    <Content Include="Content\sass\components\media.sass" />
+    <Content Include="Content\sass\components\menu.sass" />
+    <Content Include="Content\sass\components\message.sass" />
+    <Content Include="Content\sass\components\modal.sass" />
+    <Content Include="Content\sass\components\navbar.sass" />
+    <Content Include="Content\sass\components\pagination.sass" />
+    <Content Include="Content\sass\components\panel.sass" />
+    <Content Include="Content\sass\components\tabs.sass" />
+    <Content Include="Content\sass\components\_all.sass" />
+    <Content Include="Content\sass\elements\box.sass" />
+    <Content Include="Content\sass\elements\button.sass" />
+    <Content Include="Content\sass\elements\container.sass" />
+    <Content Include="Content\sass\elements\content.sass" />
+    <Content Include="Content\sass\elements\form.sass" />
+    <Content Include="Content\sass\elements\icon.sass" />
+    <Content Include="Content\sass\elements\image.sass" />
+    <Content Include="Content\sass\elements\notification.sass" />
+    <Content Include="Content\sass\elements\other.sass" />
+    <Content Include="Content\sass\elements\progress.sass" />
+    <Content Include="Content\sass\elements\table.sass" />
+    <Content Include="Content\sass\elements\tag.sass" />
+    <Content Include="Content\sass\elements\title.sass" />
+    <Content Include="Content\sass\elements\_all.sass" />
+    <Content Include="Content\sass\grid\columns.sass" />
+    <Content Include="Content\sass\grid\tiles.sass" />
+    <Content Include="Content\sass\grid\_all.sass" />
+    <Content Include="Content\sass\layout\footer.sass" />
+    <Content Include="Content\sass\layout\hero.sass" />
+    <Content Include="Content\sass\layout\section.sass" />
+    <Content Include="Content\sass\layout\_all.sass" />
+    <Content Include="Content\sass\utilities\animations.sass" />
+    <Content Include="Content\sass\utilities\controls.sass" />
+    <Content Include="Content\sass\utilities\derived-variables.sass" />
+    <Content Include="Content\sass\utilities\functions.sass" />
+    <Content Include="Content\sass\utilities\initial-variables.sass" />
+    <Content Include="Content\sass\utilities\mixins.sass" />
+    <Content Include="Content\sass\utilities\_all.sass" />
+    <None Include="compilerconfig.json" />
+    <None Include="compilerconfig.json.defaults">
+      <DependentUpon>compilerconfig.json</DependentUpon>
+    </None>
     <None Include="packages.config" />
-    <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
     <Analyzer Include="..\packages\AWSSDK.S3.3.1.9.0\analyzers\dotnet\cs\AWSSDK.S3.CodeAnalysis.dll" />
@@ -626,7 +672,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>53688</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:8081/MvcApplication</IISUrl>
+          <IISUrl>http://localhost/MvcApplication</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

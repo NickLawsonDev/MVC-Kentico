@@ -1,42 +1,83 @@
-﻿<!DOCTYPE html>
+﻿@using KenticoMVC.Controllers
+
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - My ASP.NET Application</title>
+    <style sr></style>
+    @*<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css">*@
+    <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                </ul>
+    <section id="header">
+        <div class="navbar is-fixed-top" role="navigation">
+            <div class="container">
+                <div class="navbar-brand">
+                    <a class="navbar-item" href="@Url.Content("~/Home")">
+                        <img src="@MediaLibraryRepository.GetMediaFile("derbydeals-logo-white", ".png")" alt="Derby Deals Logo" width="112" height="40">
+                    </a>
+                    <div class="navbar-burger burger" data-target="navbar">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </div>
+
+                <div id="navbar" class="navbar-menu">
+                    <div class="navbar-start">
+                        <div class="navbar-item">
+                            @Html.ActionLink("Home", "Index", "Home", new { @class = "navbar-item" })
+                        </div>
+                        <div class="navbar-item">
+                            @Html.ActionLink("About", "About", "Home", new { @class = "navbar-item" })
+                        </div>
+                        <div class="navbar-item">
+                            @Html.ActionLink("Contact", "Contact", "Home", new { @class = "navbar-item" })
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="container body-content">
+    </section>
+    <section id="body">
         @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-        </footer>
-    </div>
 
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("scripts", required: false)
+        <section id="footer">
+            <hr />
+            <footer>
+                <p>&copy; @DateTime.Now.Year - Kentico MVC Test - Recreating Derby Deals </p>
+            </footer>
+        </section>
+
+        <section id="scripts">
+            @RenderSection("scripts", required: false)
+
+            <script>
+                //bulma mobile menu
+                document.addEventListener('DOMContentLoaded', function () {
+                    // Get all "navbar-burger" elements
+                    var $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
+                    // Check if there are any navbar burgers
+                    if ($navbarBurgers.length > 0) {
+                        // Add a click event on each of them
+                        $navbarBurgers.forEach(function ($el) {
+                            $el.addEventListener('click', function () {
+                                // Get the target from the "data-target" attribute
+                                var target = $el.dataset.target;
+                                var $target = document.getElementById(target);
+                                // Toggle the class on both the "navbar-burger" and the "navbar-menu"
+                                $el.classList.toggle('is-active');
+                                $target.classList.toggle('is-active');
+                            });
+                        });
+                    }
+                });
+            </script>
+        </section>
+    </section>
 </body>
 </html>

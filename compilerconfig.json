@@ -1,0 +1,10 @@
+﻿[
+  {
+    "outputFile": "Content/bulma.css",
+    "inputFile": "Content/bulma.sass"
+  },
+  {
+    "outputFile": "Content/mystyles.css",
+    "inputFile": "Content/mystyles.scss"
+  }
+]

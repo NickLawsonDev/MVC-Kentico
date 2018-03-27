@@ -1,31 +1,91 @@
-﻿@{
+﻿@using KenticoMVC.Controllers
+
+@{
     ViewBag.Title = "Home Page";
 }
 
-<div class="jumbotron">
-    <h1>ASP.NET</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
-</div>
-
-<div class="row">
-    <div class="col-md-4">
-        <h2>Getting started</h2>
-        <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
+<section class="hero is-medium" style="background: #ffffff url(@MediaLibraryRepository.GetMediaFile("intro-image")) no-repeat right top; background-size: cover;">
+    <div class="hero-body">
+        <div class="container">
+            <div class="columns is-mobile">
+                <div class="column is-one-quarter">
+                    <div class="card">
+                        <div class="card-content">
+                            <p class="title">
+                                2018
+                            </p>
+                            <p class="subtitle">
+                                Kentucky Oaks &amp; Derby Tickets Available
+                            </p>
+                            <div class="button is-primary">
+                                Learn More
+                            </div>
+                            <p>
+                                Experience the greatest 2 minutes in sports.
+                            </p>
+                            <p>
+                                Service unlike any other
+                            </p>
+                        </div>
+                        <footer class="card-footer">
+                            <div class="card-footer-item">
+                                <img src="@MediaLibraryRepository.GetMediaFile("logo-AuthorizeNet", ".png")" />
+                            </div>
+                            <div class="card-footer-item">
+                                <img src="@MediaLibraryRepository.GetMediaFile("logo-NATB", ".png")" />
+                            </div>
+                            <div class="card-footer-item">
+                                <img src="@MediaLibraryRepository.GetMediaFile("logo-GoDaddy", ".png")" />
+                            </div>
+                            <div class="card-footer-item">
+                                <img src="@MediaLibraryRepository.GetMediaFile("bbb", ".png")" />
+                            </div>
+                        </footer>
+                    </div>
+                </div>
+                <div class="column is-three-quarters">
+                    <div class="intro-banner-callout">
+                        <h1>
+                            Customize Your Derby Trip
+                        </h1>
+                        <h2>
+                            Choose 1 or 2 day tickets add hotel &amp; race day shuttle service...
+                        </h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="disclaimer-text">
+    <div class="container">
+        <p class="has-text-centered">
+            DerbyDeals.com is a resale marketplace, not a box office or venue. Ticket prices may be above or below face value.
         </p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
     </div>
-    <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
+</section>
+<section class="legal-text">
+    <div class="container">
+        <p class="has-text-centered">
+            DerbyDeals.com has no direct affiliation with and claims no endorsement from any teams, artists, NCAA or professional leagues, golf clubs, box office or Ticketmaster or Racetracks. Any references to or terms that may be included within registered trademarks or trade names are solely used for descriptive purposes only. Rates shown on this site may be ABOVE OR BELOW FACE VALUE. They include all direct product procurement costs, related taxes, any ancillary fees if applicable and a professional service charge per order.
+        </p>
     </div>
-    <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
+</section>
+<section class="package-text">
+    <div class="container">
+        <h1 class="section-title has-text-centered">
+            Create a Package or Select a Single Service. We Have You Covered.
+        </h1>
+        <p class="has-text-centered">
+            Need some help? Contact our Derby experts and we’ll take care of everything. Call <a href="tel:1-800-555-5555">1-800-555-5555</a>. Pellentesque in ipsum id orci porta dapibus.
+        </p>
     </div>
-</div>
+</section>
+<section class="tiles">
+    @*@foreach(var tile in PageTypeRepository.GetAllTiles())
+    {
+        <div class="column" style="background: #ffffff url(@MediaLibraryRepository.GetMediaFile("")">
+
+        </div>
+    }*@
+</section>

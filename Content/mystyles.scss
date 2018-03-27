@@ -1,0 +1,12 @@
+﻿@import "sass/utilities/initial-variables";
+@import "sass/utilities/functions";
+
+$navbar-background-color: #581908;
+$navbar-item-color: #ffffff;
+$navbar-item-hover-color: #23a93b;
+$navbar-item-hover-background-color: $navbar-background-color;
+$navbar-height: 4rem;
+
+@import "sass/utilities/derived-variables";
+
+@import "bulma";
